@@ -1,6 +1,5 @@
 // NOTE: this whole package is bugged and once they fix this we can remove this workaround
 // eslint-disable-next-line import/no-unresolved
-import vercelToolbar from '@vercel/toolbar/plugins/next';
 import { withSentryConfig } from '@sentry/nextjs';
 import bundleAnalyzer from '@next/bundle-analyzer';
 // eslint-disable-next-line import/no-unresolved
@@ -51,6 +50,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'uploadthing.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'file.rendit.io',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   swcMinify: true,
@@ -58,13 +63,12 @@ const nextConfig = {
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
-const withVercelToolbar = vercelToolbar();
 
 export default million.next(
   withSentryConfig(
     // NOTE: this whole package is bugged and once they fix this we can remove this workaround
     // @ts-ignore
-    withBundleAnalyzer(withVercelToolbar(nextConfig)),
+    withBundleAnalyzer(nextConfig),
     {
       // For all available options, see:
       // https://github.com/getsentry/sentry-webpack-plugin#options
