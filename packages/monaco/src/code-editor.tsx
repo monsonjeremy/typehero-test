@@ -16,8 +16,8 @@ const getBaseUrl = () => {
     return 'https://typehero.dev';
   }
 
-  if (!isProd && window?.location?.port === '3001') {
-    return 'http://localhost:3000';
+  if (!isProd && window?.location?.port === '3002') {
+    return 'http://localhost:3001';
   }
 
   return '';
