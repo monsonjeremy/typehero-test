@@ -1,8 +1,13 @@
+'use client';
 import { Card } from '@repo/ui/components/card';
 
 import { useState, useEffect, useRef } from 'react';
 import { ActionButton } from './[locale]/tracks/_components/enroll-button';
 import { ViewMoreButton } from './[locale]/explore/_components/view-more-button';
+import {
+  enrollUserInTrack,
+  unenrollUserFromTrack,
+} from './[locale]/tracks/_components/track.action';
 
 export default function Component() {
   const [userFollowed, setUserFollowed] = useState(false);

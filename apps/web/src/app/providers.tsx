@@ -7,8 +7,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ThemeProvider } from 'next-themes';
 import React, { Suspense } from 'react';
 import { Toolbar } from '~/components/toolbar';
-import { I18nProviderClient } from '~/locales/client';
-import { FeatureFlagProvider } from '../feature-flag-provider';
+import { FeatureFlagProvider } from './feature-flag-provider';
 import type { Corner } from '@tanstack/react-query-devtools/build/lib/utils';
 
 interface Props {
@@ -26,9 +25,7 @@ export function Providers({ locale, children }: Props) {
       <SessionProvider>
         <ThemeProvider attribute="class">
           <FeatureFlagProvider>
-            <TooltipProvider>
-              <I18nProviderClient locale={locale}>{children}</I18nProviderClient>
-            </TooltipProvider>
+            <TooltipProvider>{children}</TooltipProvider>
           </FeatureFlagProvider>
           <Suspense>
             <Toolbar />
