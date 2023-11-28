@@ -1,1 +1,8 @@
-{ "repoId": 715264284 }
+{
+  "repoName": "monsonjeremy/typehero-test",
+  "preview": {
+    "path": "src/app/preview/",
+    "framework": "NEXT"
+  },
+  "repoId": 715264284
+}
